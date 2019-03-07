@@ -1,0 +1,36 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main{
+    public static void main(String[] args){
+    	Scanner sc=new Scanner(System.in);
+    	int init=sc.nextInt();
+    	sc.close();
+    	int[] array=new int[9];
+    	int max=0;
+    	
+    	while(init!=0){
+    		int i=init%10;
+    		if(i==9){
+    			array[6]++;
+    		}else{
+    			array[i]++;
+    		}
+    		init=(int) init/10;
+    	}
+    	
+    	for(int i=0;i<9;i++){
+    		if(i!=6&&array[i]>max){
+    			max=array[i];
+    		}else if(i==6&&array[i]/2>=max){
+    			max=(int) array[i]/2+array[i]%2;
+    		}
+    	}
+    	
+    	System.out.println(max);
+    }
+}
+
+/*방번호를 int로 받아서 6이나 9는 같다고 취급, array[6]에 다 카운트하려는 심산이었는데 오답이라는 결과를 얻었다.
+더 생각해보고 시도해보고...*/

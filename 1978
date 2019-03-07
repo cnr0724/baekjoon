@@ -1,0 +1,35 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main{
+    public static void main(String[] args){
+    	Scanner sc=new Scanner(System.in);
+        int nums=sc.nextInt();
+        int try1=0;
+        int so=0;
+        
+        while(try1<nums){
+            int num=sc.nextInt();
+            if(num!=1){
+               int sq=(int) Math.sqrt(num);
+               int i=2;
+               while(i<=sq){
+                    if(num%i==0){
+                    	so++;
+                        break;
+                    }
+                    i++;
+               }
+            }else{so++;}
+            try1++;
+        }
+        sc.close();
+        
+        System.out.println(nums-so);
+    }
+}
+
+/*자연수 n이 소수인지 판별하는 건 n을 2부터 n의 제곱근보다 작은 최대의 자연수까지로 일일이 나눠봄으로써 가능함. 에라토스테네스의 체.
+엄청 간단한 내용인데 이상할만큼 시도를 많이 함. 위의 코드는 다른 문제를 풀다 다시 한 번 검토한 결과인데,
+흐름 따라가면서 디버깅하니 틀린 이유가 22번째 줄의 i++; 위치를 잘못 놓아서였음을 깨닫고 매우 허탈했다. 마음이 싱숭생숭해서 정신 못 차린듯.*/

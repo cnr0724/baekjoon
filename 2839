@@ -1,0 +1,81 @@
+<첫번째 시도>
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main{
+    public static void main(String[] args){
+    	Scanner sc=new Scanner(System.in);
+        int kilo=sc.nextInt();
+        boolean no=false;
+        sc.close();
+
+        if(kilo%5==0){
+        	System.out.println(kilo/5);
+        }else if(kilo%5==1){//6 11
+        	if(kilo>=6){
+        		System.out.println((kilo-6)/5+2);
+        	}else{//1
+        		no=true;
+       		}
+       	}else if(kilo%5==2){//12 17
+       		if(kilo>=12){
+       			System.out.println((kilo-12)/5+4);
+       		}else{//2 7
+       			no=true;
+       		}
+        }else if(kilo%5==3){//3 8
+       		System.out.println((kilo-3)/5+1);
+       	}else if(kilo%5==4){//9
+       		if(kilo>=9){
+       			System.out.println((kilo-9)/5+3);
+       		}else{//4
+       			no=true;
+       		}         
+       	}        
+        
+        if(no){
+        	System.out.println(-1);
+        }
+    }
+}
+
+/*단순하게 생각해 제일 큰 단위인 5를 기준으로 경우를 나눴음.
+맞는 답이 나오기는 했지만 경우를 일일이 나눠서 치는 것이 비효율적인 것처럼 느껴져서 줄일 방법을 생각했다.*/
+
+
+<두번째 시도>
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main{
+    public static void main(String[] args){
+    	Scanner sc=new Scanner(System.in);
+        int kilo=sc.nextInt();
+        sc.close();
+
+        int fiveK=(int) kilo/5; //주어진 킬로수 내에서 5kg을 최대한 많이 썼을 때의 개수.
+        int left=kilo%5;
+        int result=0;
+        
+        while(fiveK>=0){
+        	if(left%3==0){
+        		result=fiveK+left/3;
+        		break;
+        	}else{
+        		fiveK--;
+        		left+=5;
+        	}
+        }
+        
+        if(fiveK<0){
+        	System.out.println(-1);
+        }else{
+        	System.out.println(result);
+        }
+    }
+}
+
+/*이 알고리즘을 쓰면 경우를 분리할 필요가 없는 게 편했다.
+while문 내에서 계속 돌려보면서 3kg와 5kg로 만들 수 있는지 없는지를 fiveK의 값으로 판별 가능한 점도 좋았음.*/

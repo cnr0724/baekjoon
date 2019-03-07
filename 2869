@@ -1,0 +1,28 @@
+import java.util.*;
+import java.io.*;
+
+public class Main{
+    public static void main(String[] args){
+    	Scanner sc=new Scanner(System.in);
+    	int a=sc.nextInt();
+    	int b=sc.nextInt();
+    	int v=sc.nextInt();
+    	sc.close();
+    	int day=0;
+    	
+    	while(v>=0){
+    		day++;
+    		v-=a;
+    		if(v<=0){
+    			break;
+    		}else{
+    			v+=b;
+    		}
+    	}
+    	
+    	System.out.print(day);
+    }
+}
+
+/*밤까지 안 가고 낮에서 끝나더라도 날은 는 거라 day 세는 걸 while문 내에서 제일 앞으로 뺐다.
+while문 중반에서 남은 거리 v를 체크하는 건 도착하면 b만큼 미끄러져  일이 없으니까.*/

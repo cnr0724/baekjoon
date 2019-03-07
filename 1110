@@ -1,0 +1,29 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main{
+    public static void main(String[] args){
+    	Scanner sc=new Scanner(System.in);
+        int init=sc.nextInt();
+        int result1=init;
+        int result2=0;
+        int cyc=0;
+        boolean same=false;
+        while(!same){
+        	cyc++;
+        	result2=(result1%10)*10+((int) result1/10+result1%10)%10;
+        	if(result2==init){
+        		same=true;
+        	}
+        	result1=result2;
+        }
+        
+        System.out.println(cyc);
+    }
+}
+
+/*깔끔하게 15번째 줄 식 우변의 항들을 다 변수로 따로 지정할 걸 그랬나 싶다.
+init은 처음 주어지는 수.
+(result1%10)*10은 이전 단계에서의 input의 맨 오른쪽 자리값을 새 결과값의 10^1의 자리에 두기 위한 항.
+((int) result1/10+result1%10)%10은 이전 단계에서의 output의 맨 오른쪽 자리값을 새 결과값의 10^0의 자리에 두기 위한 항.*/

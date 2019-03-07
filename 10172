@@ -1,0 +1,14 @@
+import java.io.*;
+
+public class Main{
+    public static void main(String[] args){
+        System.out.println("|\\_/|");
+        System.out.println("|q p|   /}");
+        System.out.println("( 0 )\"\"\"\\");
+        System.out.println("|\"^\"`    |");
+        System.out.println("||_/=\\\\__|");
+    }
+}
+
+/*해당 코드에서 놓친 것: 자바에서 \를 출력할 때는 \\로 입력하며, "를 출력할 때는 \"로 입력함.
+\n, \t처럼 엔터, 탭을 포함해 기호를 출력할 때는 \를 빼먹지 말 것.*/

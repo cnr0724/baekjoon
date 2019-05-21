@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main()
+{
+	int result,stl;
+	char c;
+	char *input;
+	char st[100];
+	input = st;
+	cin >> input;
+	result = 0;
+	stl = strlen(st);
+	for (int i = 0; i < stl; i++) {
+		c = st[i];
+		cout << c;
+		if (i % 10 == 9) {
+			cout << endl;
+		}
+	}
+
+	return 0;
+}

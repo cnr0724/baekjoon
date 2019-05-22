@@ -1,0 +1,22 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+	int num,test_case;
+	cin >> test_case;
+	for (int j = 0; j < test_case; j++) {
+		cin >> num;
+		int result = 0;
+		int count[12];
+		count[1] = 1;
+		count[2] = 2;
+		count[3] = 4;
+		for (int i = 4; i <= num; i++) {
+			count[i] = count[i - 1] + count[i - 2] + count[i - 3];
+		}
+		cout << count[num] << endl;
+	}
+	return 0;
+}

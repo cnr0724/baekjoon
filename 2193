@@ -1,0 +1,21 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+	int num;
+	cin >> num;
+	long long int count[91][2];
+	count[1][0] = 0;
+	count[1][1] = 1;
+
+	for (int i = 2; i <= num; i++) {
+		count[i][0] = count[i - 1][0] + count[i - 1][1];
+		count[i][1] = count[i - 1][0];
+	}
+
+	cout << count[num][0] + count[num][1] << endl;
+
+	return 0;
+}

@@ -1,0 +1,44 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+	int E, S, M;//E, S, M 값 저장.
+	cin >> E >> S >> M;
+	int i = 0;//출력값을 결정할 파라미터 i
+	int result;//출력값(연도)
+	bool allMax=false;//E=15, S=28, M=19인가?
+
+	while (1) {
+		if (E == 15 && S == 28 && M == 19) {
+			allMax = true;
+		}//E=15, S=28, M=19면 예외처리해야함 (안 하면 아래 if 문에서 셋 다 mod 연산 결과가 0 나와서 음? 됨)
+
+		if (E == 15) E = 0;//귀찮은 거 싫어서 ESM 셋 다 조정
+		if (S == 28) S = 0;
+		if (M == 19) M = 0;
+    
+    result = 15 * i + E;//E를 기준으로 result값 정함.
+
+		if ((result % 28 == S)&&(result%19==M)) {
+			break;
+		}//조건에 부합하는 경우 while문 탈주
+		else if (result % 28 == S) {
+			i += 28;
+		}//E랑 S만 부합하는 경우면 i에 28씩 더해서 result%28=S 유지하되 result%19=M도 맞게 해야함
+		else if (result % 19 == M) {
+			i += 19;
+		}//E랑 M만 부합하는 경우면 i에 19씩 더해서 result%19=M 유지하되 result%28=S도 맞게 해야함
+		else {
+			i++;
+		}//셋 다 안 맞으면 i에 1 더함
+	}
+  
+	if (allMax) {
+		result = 7980;
+	}//E=15, S=28, M=19라서 예외 처리. 15*28*19=7980이라서 이렇게 해둠.
+  
+	cout << result << endl;
+	return 0;
+}

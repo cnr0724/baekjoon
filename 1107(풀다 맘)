@@ -1,0 +1,44 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+	int destination, wrongnum, n;
+	int buttons[10] = { 1 };
+	cin >> destination >> wrongnum;
+	int ways[500001];
+
+	for (int i = 0; i < wrongnum; i++) {
+		cin >> n;
+		buttons[n] = 0;
+	}
+	n = 0;
+
+	ways[99] = 1;
+	ways[100] = 0;
+	ways[101] = 1;
+	ways[102] = 2;
+
+	if (destination < 10) {
+		if (buttons[destination]) {
+			ways[destination] = 1;
+		}
+		else {
+			int less, more;
+			less = destination - 1;
+			more = destination + 1;
+			while (0 < less) {
+				if (buttons[less])	break;
+				less--;
+			}
+			while (more < 10) {
+				more++;
+			}
+
+		}
+	}
+
+
+	return 0;
+}

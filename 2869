@@ -26,3 +26,20 @@ public class Main{
 
 /*밤까지 안 가고 낮에서 끝나더라도 날은 는 거라 day 세는 걸 while문 내에서 제일 앞으로 뺐다.
 while문 중반에서 남은 거리 v를 체크하는 건 도착하면 b만큼 미끄러져  일이 없으니까.*/
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int A, B, V, state = 0, day = 0;
+	cin >> A >> B >> V;
+
+	if (V == A) day = 1;
+	else day = (V + A - 2 * B - 1) / (A - B);
+
+	cout << day << endl;
+	
+	return 0;
+}

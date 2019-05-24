@@ -1,0 +1,42 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+	int num, length;
+	int eger[5] = { 0 };
+	bool result = true;
+
+	while (cin >> num) {
+		if (num == 0) break;
+		else {
+			int a = num;
+			length = 0;
+			result = true;
+
+			while (a > 0) {
+				a /= 10;
+				length++;
+			}
+
+			a = num;
+
+			for (int i = length - 1; i >= 0; i--) {
+				eger[i] = a % 10;
+				a /= 10;
+			}
+
+			for (int i = 0; i < length / 2; i++) {
+				if (eger[i] != eger[length - 1 - i]) {
+					result = false; break;
+				}
+			}
+
+			if (result) cout << "yes\n";
+			else cout << "no\n";
+		}
+	}
+	
+	return 0;
+}
